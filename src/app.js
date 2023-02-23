@@ -19,7 +19,7 @@ function displayForecast(response) {
         `
               <div class="col-2">
                 <div class="weather-forecast-day">${formatDay(
-                  forecastDay.dts
+                  forecastDay.dt
                 )}</div>
                 <img
                 src="http://openweathermap.org/img/wn/${
@@ -89,19 +89,8 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-}
-
 function displayCelsiusTemperature(event) {
   event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -111,7 +100,6 @@ let celsiusTemperature = null;
 let searchForm = document.querySelector("#search-field");
 searchForm.addEventListener("submit", handleSubmit);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
+let celsiusLink = document.querySelector("#celsius-temp");
 
-search("New York");
+search("Seattle");
