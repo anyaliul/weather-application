@@ -19,7 +19,7 @@ function displayForecast(response) {
         `
               <div class="col-2">
                 <div class="weather-forecast-day">${formatDay(
-                  forecastDay.dt
+                  forecastDay.dts
                 )}</div>
                 <img
                 src="http://openweathermap.org/img/wn/${
@@ -28,11 +28,11 @@ function displayForecast(response) {
                 alt="width="42"
                 />
                 <div class="weather-forecast-temperatures">
-                  <span class="weather-forecast-temperature-celsius">
-                    ${Math.round(forecastDay.temp.max)}° C
-                  </span>
-                  <span class="weather-forecast-temperature-fahrenheit">
-                    | ${Math.round(forecastDay.temp.min)}° F
+                  <span class="weather-forecast-temperature-max">
+                  ${Math.round(forecastDay.temp.max)}°
+                  </span>  
+                  <span class="weather-forecast-temperature-min">
+                      ${Math.round(forecastDay.temp.min)}°
                   </span>
                 </div>
               </div>
@@ -111,53 +111,7 @@ let celsiusTemperature = null;
 let searchForm = document.querySelector("#search-field");
 searchForm.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("New York");
-
-// function typeCity(event) {
-//   event.preventDefault();
-//   let cityInput = document.querySelector("#search-field-input");
-//   let apiKey = "7ed26a6948c661d05fafe7355b41b2ec";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
-//   axios.get(apiUrl).then(showCity);
-//   axios.get(apiUrl).then(showTemp);
-//   axios.get(apiUrl).then(showHumidity);
-//   axios.get(apiUrl).then(showFeelsLike);
-// }
-
-// function showCity(response) {
-//   let city = response.data.name;
-//   let cityName = document.querySelector("#city");
-//   cityName.innerHTML = `${city}`;
-// }
-
-// function showTemp(response) {
-//   let temperature = Math.round(response.data.main.temp);
-//   let tempInCity = document.querySelector("#temperature");
-//   tempInCity.innerHTML = `${temperature} °C`;
-// }
-
-// function showHumidity(response) {
-//   let humidity = response.data.main.humidity;
-//   let humidityInCity = document.querySelector("#humidity");
-//   humidityInCity.innerHTML = `Humidity: ${humidity}%`;
-// }
-
-// function showFeelsLike(response) {
-//   let feelsLike = Math.round(response.data.main.feels_like);
-//   let feelsLikeInCity = document.querySelector("#feels-like");
-//   feelsLikeInCity.innerHTML = `Feels like: ${feelsLike} °C`;
-// }
-
-// function showCurrentCity(response) {
-//   let currentCity = document.querySelector("#city");
-//   currentCity.innerHTML = `${response.data.name}`;
-// }
-
-// let searchForm = document.querySelector("#search-field");
-// searchForm.addEventListener("submit", typeCity);

@@ -64,6 +64,10 @@ a {
   margin-left: 50px;
 }
 
+.weather-forecast-temperature-min {
+  color: gray;
+}
+
 .copyright {
   text-align: center;
   font-size: 24px;
