@@ -38,11 +38,7 @@ a {
   text-transform: uppercase;
 }
 
-.mon,
-.tue,
-.wed,
-.thur,
-.fri {
+.weather-forecast-day {
   font-size: 26px;
   margin-top: 20px;
 }
@@ -52,11 +48,7 @@ a {
   margin: 20px;
 }
 
-.mon-temp,
-.tue-temp,
-.wed-temp,
-.thur-temp,
-.fri-temp {
+.weather-forecast-temperatures {
   font-size: 22px;
 }
 
@@ -65,7 +57,7 @@ a {
 }
 
 .row .weekly-weather {
-  margin-left: 80px;
+  margin-left: 20px;
 }
 
 .form-group {
